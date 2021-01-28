@@ -1,12 +1,21 @@
 // Routes
 // =============================================================
+var path = require("path");
 
-// Basic route that sends the user first to the AJAX Page
-app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "view.html"));
-  });
-  
+module.exports = function (app) {
+
   // send out a file to .....add page
-  app.get("/add", function(req, res) {
-    res.sendFile(path.join(__dirname, "add.html"));
+  app.get("/notes", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/notes.html"));
   });
+
+    // Basic route that sends the user first to the AJAX Page
+    app.get("*", function (req, res) {
+      res.sendFile(path.join(__dirname, "../public/index.html"));
+    });
+  
+
+};
+
+
+  
