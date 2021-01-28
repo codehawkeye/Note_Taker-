@@ -1,6 +1,6 @@
 const express = require("express");
-const apiRoutes = require("../routes/apiRoutes.js");
-const htmlRoutes = require("../routes/htmlRoutes.js");
+const apiRoutes = require("./routes/apiRoutes.js");
+const htmlRoutes = require("./routes/htmlRoutes.js.js");
 const fs = require("fs");
 const { send } = require("process");
 const path = require("path"),;
@@ -48,16 +48,17 @@ app.post("/api/notes", (req, res) => {
     });
     
 
-    app.delete("/api/notes/:id",)   
+app.delete("/api/notes/:id", (req, res) => {
+    let noteList = JSON.parse(fs.readFileSync(",/db/db/json"));
+    let noteId = (req.param.id).toString();
+    notelist.filter(selected => {
+        return selected.id != noteId;
+    })
+});   
+    fs.writeFileSync("./db/db.json", JSON.stringify(noteList));
+    res.json(noteList);
 
-
-
-
-
-
-        
-       
-        
+ 
  
  
 
