@@ -1,10 +1,8 @@
-var notes = require("../public/notes");
-var notes = require("../public/index");
+var notes = require("../public/notes.html");
+var notes = require("../public/index.html");
 
 
 
 
 module.exports = function (app {
     
-    app.get("/api")
-})

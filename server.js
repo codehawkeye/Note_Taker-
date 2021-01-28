@@ -1,9 +1,9 @@
 const express = require("express");
 const apiRoutes = require("./routes/apiRoutes.js");
-const htmlRoutes = require("./routes/htmlRoutes.js.js");
+const htmlRoutes = require("./routes/htmlRoutes.js");
 const fs = require("fs");
 const { send } = require("process");
-const path = require("path"),;
+const path = require("path");
 const { json } = require("express");
 
 
@@ -31,7 +31,6 @@ app.get("/*", (req, res) => {
 });
 // to display notes
 app.post("/api/notes", (req, res) => {
-    fs.readFile(path.join(__dirname, "/db/db/json") = {
         let newNote = req.body;
         let noteList = json.parse(fs.readFileSync("./db/db.json"));
         let noteLength = (notelist.length).toString();
@@ -43,9 +42,12 @@ app.post("/api/notes", (req, res) => {
         fs.writeFileSync("./db/db.json", JSON.stringify(noteList));
         res.json(noteList);
     })
+    
+
+    
 
                                 
-    });
+
     
 
 app.delete("/api/notes/:id", (req, res) => {
