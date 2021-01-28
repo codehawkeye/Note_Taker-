@@ -3,6 +3,7 @@ const apiRoutes = require("../routes/apiRoutes.js");
 const htmlRoutes = require("../routes/htmlRoutes.js");
 const fs = require("fs");
 const { send } = require("process");
+const path = require("path"),
 const newDb = [];
 
 // app initialization and create port
@@ -27,16 +28,26 @@ app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, "public/assets/index.html"));
 
 });
+// to display notes
+app.post("/api/notes", (req, res) => {
+    fs.readFile(path.join(__dirname, "/db/db/json") = {
+      return res.json(notes);
+                                
+    });
+    
+});
+    
 
-app.post("/api/notes", (req, require) => {
-    fs.readFile(path.join(__dirname, "/db/db/json"), "utf8, (err, data") = {
-        if(err) {
-            return console.log("Somthing went wrong!" + err)
-        }        
-        notes = JSON.parse(notes);
+
+
+
+
+
         
-    }
-})
+       
+        
+ 
+ 
 
 
 
