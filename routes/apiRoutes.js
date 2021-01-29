@@ -34,19 +34,25 @@ module.exports = function (app) {
         })
     })
 
-    // app.delete("/api/notes/:id", (req, res) => {
-    //     notelist = fs.readFile("/../dbdb.json", "utf8");
-    //     noteList = JSON.parse(noteList);
-    //     noteList = noteList.filter(function (note) {
-    //         return note.id != req.params.id;
-    //     })
-        
-    // });
-    // noteList = JSON.stringify(noteList);
+    app.delete('/api/notes/:id', function (req, res) {
+        //chosen variable adds an id to each newNote
+          chosen = req.params.id;
+          console.log(chosen);
+         fs.readFile('./db/db.json', "utf-8", (err, data) => {
+          if (err) throw err;
+          noteList = JSON.parse(data);
+           var notesIndex = noteList.findIndex(i => i.id == chosen);
+           console.log(notesIndex);
+             noteList.splice(notesIndex, 1);
 
-    // // fs.writeFile("/../db/db.json", noteList, utf8, function (err) {
-    //     if (err) throw err;
-    // });
-    // res.send(JSON.parse(noteList));
+             fs.writeFile(path.join(__dirname + "/../db/db.json"), JSON.stringify(noteList), (err) => {
+                if (err) throw err;
+            })
+             
+             //    
+         });
+         return res.send("No character found");
+    })
+    
    
 }
