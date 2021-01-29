@@ -49,7 +49,7 @@ module.exports = function (app) {
                 if (err) throw err;
             })
              
-             //    
+                
          });
          return res.send("No character found");
     })
