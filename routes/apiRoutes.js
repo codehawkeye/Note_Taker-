@@ -34,13 +34,19 @@ module.exports = function (app) {
         })
     })
 
-    app.delete("/api/notes/:id", (req, res) => {
-        let noteList = JSON.parse(fs.readFileSync(",/db/db/json"));
-        let noteId = (req.param.id).toString();
-        notelist.filter(selected => {
-            return selected.id != noteId;
-        })
-    });
+    // app.delete("/api/notes/:id", (req, res) => {
+    //     notelist = fs.readFile("/../dbdb.json", "utf8");
+    //     noteList = JSON.parse(noteList);
+    //     noteList = noteList.filter(function (note) {
+    //         return note.id != req.params.id;
+    //     })
+        
+    // });
+    // noteList = JSON.stringify(noteList);
 
+    // // fs.writeFile("/../db/db.json", noteList, utf8, function (err) {
+    //     if (err) throw err;
+    // });
+    // res.send(JSON.parse(noteList));
    
 }
